@@ -19,7 +19,7 @@ Most of the requirements are handled through composer but you will still need to
 The package takes advantage of a framework for Laravel package development called Orchestral Testbench so there is little to do beyond cloning the repo and installing dependencies.
 
 ```bash
-$ git clone https://github.org/technicpack/launcher-Api
+$ git clone https://github.com/technicpack/launcher-Api
 $ cd launcher-api
 $ composer install
 ```
