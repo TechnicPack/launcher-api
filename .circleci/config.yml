@@ -1,0 +1,19 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: /var/www
+
+    docker:
+      - image: laratools/ci:7.1
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Composer Dependencies
+          command: composer install --no-progress --no-suggest
+
+      - run:
+          name: PHPUnit Tests
+          command: vendor/bin/phpunit
