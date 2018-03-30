@@ -80,7 +80,7 @@ The package includes some database migrations, so make sure you run those migrat
 The defaults are set in config/launcher-api.php. Copy this file to your own config directory to modify the values. You can publish the config using this command:
 
 ```bash
-$ php artisan vendor:publish --tag=platform-api-config
+$ php artisan vendor:publish --tag=launcher-api-config
 ```
 
 The configuration file is pretty well documented but make sure you read through everything and align it with your application. Sane defaults are set for all options, but these won't guarantee that the application works without any tweaking.
@@ -182,8 +182,8 @@ _note that the components do not include ANY template, you must implement your o
 
 To publish the Launcher API Vue components, use the vendor:publish Artisan command:
 
-```
-php artisan vendor:publish --tag=platform-api-components
+```bash
+$ php artisan vendor:publish --tag=launcher-api-components
 ```
 
 The published components will be placed in your `resources/assets/js/vendor/launcher-api` directory. Once the components have been published, you should register them in your `resources/assets/js/app.js` file:
