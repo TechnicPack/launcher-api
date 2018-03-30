@@ -48,6 +48,11 @@ $ vendor/bin/php-cs-fixer fix -v
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/technicpack/launcher-api/tags).
 
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/technicpack/launcher-api/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+
 ## Deployment
 
 Deploying this package into a project is not trivial; the package is flexible but opinionated about the general underlying data structure. The instructions here will not be exhaustive, but should get you started towards integrating the Launcher API into your project.
