@@ -6,9 +6,168 @@
 This package provides the endpoints necessary for the TechnicPack Launcher to
 load a modpack, its builds and the mods related with a build.
 
+## Getting Started
+
+These instructions will get you a copy of the package up and running on your local machine for development and testing purposes. Its important to note that this package does very little on its own. Its intended to be included in a larger project such as [TechnicPack Solder](https://github.com/technicpack/solder). See deployment for notes on how to deploy the package into another project.
+
+### Prerequisites
+
+Most of the requirements are handled through composer but you will still need to have a system with PHP 7.1+ and composer installed.
+
+### Setup
+
+The package takes advantage of a framework for Laravel package development called Orchestral Testbench so there is little to do beyond cloning the repo and installing dependencies.
+
+```bash
+$ git clone https://github.org/technicpack/launcher-Api
+$ cd launcher-api
+$ composer install
+```
+
+## Running the tests
+
+Its important that the project maintain very high test coverage to ensure that changes to the code don't break any expected behavior from the API. This API is called on nearly every time a user runs the TechnicPack Launcher, its an invisible part of what makes Technic work, and we want to keep it invisible to the day-to-day user.
+
+### PHPUnit Feature and Unit tests
+
+A majority of the testing is done in feature tests which test the expected output of API endpoints under various conditions and with various inputs. You can run the full suite of unit and feature tests with PHPUnit.
+
+```bash
+$ vendor/bin/phpunit
+```
+
+### Code style tests
+
+Code style is also very important to us, a consistent code style makes the project easier to maintain and the pre-defined rules for how code should look lets everyone focus on function over form. Any push or PR will be checked by StyleCI before being merged. In order to reduce the number of commits, a local config and tool are included to allow you to run a fixer on your code before pushing it up to github.
+
+```bash
+$ vendor/bin/php-cs-fixer fix -v
+```
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/technicpack/launcher-api/tags).
+
+## Deployment
+
+Deploying this package into a project is not trivial; the package is flexible but opinionated about the general underlying data structure. The instructions here will not be exhaustive, but should get you started towards integrating the Launcher API into your project.
+
+### Installation
+
+Require this package with composer.
+
+```bash
+$ composer require technicpack/launcher-api
+```
+
+Laravel 5.5 uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
+
+If you are using Laravel < 5.5, you also need to add the service provider to your `config/app.php` providers array:
+
+```php
+TechnicPack\LauncherApi\Providers\LauncherApiServiceProvider::class,
+```
+
+The package includes some database migrations, so make sure you run those migrations with `php artisan migrate`.
+
+### Configuration
+
+The defaults are set in config/launcher-api.php. Copy this file to your own config directory to modify the values. You can publish the config using this command:
+
+```bash
+$ php artisan vendor:publish --tag=platform-api-config
+```
+
+The configuration file is pretty well documented but make sure you read through everything and align it with your application. Sane defaults are set for all options, but these won't guarantee that the application works without any tweaking.
+
+### Implementation
+
+As much of the code as possible has been encapsulated into the package; but there are some changes required to your application to hook up all the pieces. We've made those changes as minimal as possible end grouped things into traits and interfaces for ease of deployment.
+
+**Linking Modpacks to Clients**
+
+The `HasClients` trait provides several methods to assist you in managing private modpacks exposed to known clients. The trait defines a clients relation to the `TechnicPack\LauncherApi\Client` model allows you to iterate over all of the modpacks's clients:
+
+```php
+foreach ($modpack->clients as $client) {
+    echo $client->token;
+}
+```
+
+The trait also provides several other helper methods that are useful when developing team based applications:
+
+```php
+if ($modpack->hasClients()) {
+    // This modpack has at least one client...
+}
+
+if ($modpack->knowsClient($client)) {
+    // The modpack knows the given client (the client is attached)...
+}
+
+// Get modpacks for which the given client is known...
+$modpacks = Modpack::scopeForClient($client)->get();
+
+// Get modpacks for which the given client token is known...
+$modpacks = Modpack::scopeForClientToken($token)->get();
+
+// Attach the client to the modpack...
+$modpack->attachClient($client);
+
+// Remove the client from the modpack...
+$modpack->dettachClient($client);
+```
+
+**Describe relationships and scopes**
+
+This package assumes that the Modpack, Build and Mod models expose information about how they're related, and how to limit queries to specific kinds of results. The easiest way to provide that information is to implement the Modpack and Build interfaces on your models (there is no interface for Mod since the only information we need comes from the `$build->mods()` relationship).
+
+```php
+use TechnicPack\LauncherApi\Build as PlatformBuild;
+use TechnicPack\LauncherApi\Modpack as PlatformModpack;
+
+class Modpack implements PlatformModpack
+{
+    public function builds()
+    {
+        // Return a hasMany or belongsToMany relationship of your builds model
+        // eg: return $this->hasMany(Build::class);
+    }
+
+    public function scopePublic(Builder $query)
+    {
+        // Provide a scope for modpacks which should be public
+        // eg: return $query->where('private', false);
+    }
+
+    public function scopePrivate(Builder $query)
+    {
+        // Provide a scope for modpacks which should be private
+        // eg: return $query->where('private', true);
+    }
+}
+
+class Build implements PlatformBuild
+{
+    public function mods()
+    {
+        // Return a hasMany or belongsToMany relationship of your Mods model
+        // eg: return $this->hasMany(Mod::class);
+    }
+
+    public function scopePublic(Builder $query)
+    {
+        // Provide a scope for builds which should be public
+        // eg: return $query->where('private', false);
+    }
+
+    public function scopePrivate(Builder $query)
+    {
+        // Provide a scope for builds which should be private
+        // eg: return $query->where('private', true);
+    }
+}
+```
 
 ## Authors
 

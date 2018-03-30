@@ -27,10 +27,9 @@ class LauncherApiServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadMigrationsFrom(__DIR__.'/../../migrations');
 
-        $this->publishes([__DIR__.'/../../config/launcher-api.php' => config_path('launcher-api.php')]);
-
         $this->mergeConfigFrom(__DIR__.'/../../config/launcher-api.php', 'launcher-api');
 
+        $this->registerPublishers();
         $this->registerPolicies();
     }
 
@@ -47,5 +46,18 @@ class LauncherApiServiceProvider extends ServiceProvider
         Gate::define('clients.list', config('launcher-api.authorize.clients.list'));
         Gate::define('clients.create', config('launcher-api.authorize.clients.create'));
         Gate::define('clients.delete', config('launcher-api.authorize.clients.delete'));
+    }
+
+    /**
+     * Expose publishable assets.
+     *
+     * @return void
+     */
+    public function registerPublishers()
+    {
+        // --tag=launcher-api-config
+        $this->publishes([
+            __DIR__.'/../../config/launcher-api.php' => config_path('launcher-api.php')
+        ], 'launcher-api-config');
     }
 }

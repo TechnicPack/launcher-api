@@ -17,7 +17,9 @@ return [
     |--------------------------------------------------------------------------
     |
     | The version of the API. Consumers can use this to understand
-    | functionality and features available at the API.
+    | functionality and features available at the API. You generally
+    | shouldn't be changing this as the package determines the feature
+    | set exposed.
     |
     */
 
@@ -30,7 +32,8 @@ return [
     |
     | The software used to generate the API responses. This is meta information
     | provided to API consumers to let them know what tool or package is being
-    | used to generate API responses.
+    | used to generate API responses. Think of this like a HTTP Server or
+    | X-Powered-By header.
     |
     */
 
@@ -126,15 +129,15 @@ return [
     'authorize' => [
 
         'clients' => [
-            'list' => 'Platform\Policies\ClientPolicy@list',
-            'create' => 'Platform\Policies\ClientPolicy@create',
-            'delete' => 'Platform\Policies\ClientPolicy@delete',
+            'list' => 'TechnicPack\LauncherApi\Policies\ClientPolicy@list',
+            'create' => 'TechnicPack\LauncherApi\Policies\ClientPolicy@create',
+            'delete' => 'TechnicPack\LauncherApi\Policies\ClientPolicy@delete',
         ],
 
         'keys' => [
-            'list' => 'Platform\Policies\KeyPolicy@list',
-            'create' => 'Platform\Policies\KeyPolicy@create',
-            'delete' => 'Platform\Policies\KeyPolicy@delete',
+            'list' => 'TechnicPack\LauncherApi\Policies\KeyPolicy@list',
+            'create' => 'TechnicPack\LauncherApi\Policies\KeyPolicy@create',
+            'delete' => 'TechnicPack\LauncherApi\Policies\KeyPolicy@delete',
         ],
 
     ],

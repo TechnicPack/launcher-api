@@ -13,7 +13,8 @@
         "orchestra/testbench": "3.6",
         "phpunit/phpunit": "~7.0",
         "orchestra/database": "3.6",
-        "php-coveralls/php-coveralls": "^2.0"
+        "php-coveralls/php-coveralls": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.11"
     },
     "autoload": {
         "psr-4": {
