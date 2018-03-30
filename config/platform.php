@@ -125,7 +125,6 @@ return [
             'delete' => 'Platform\Policies\KeyPolicy@delete',
         ],
 
-
     ],
 
 ];
