@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Controllers\Settings;
+namespace TechnicPack\LauncherApi\Http\Controllers\Settings;
 
 use Exception;
-use Platform\Client;
-use Platform\Http\Controllers\Controller;
-use Platform\Http\Resources\ClientResource;
+use TechnicPack\LauncherApi\Client;
+use TechnicPack\LauncherApi\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\Http\Resources\ClientResource;
 
 class ClientsController extends Controller
 {

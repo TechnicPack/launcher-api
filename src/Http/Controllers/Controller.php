@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Controllers;
+namespace TechnicPack\LauncherApi\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

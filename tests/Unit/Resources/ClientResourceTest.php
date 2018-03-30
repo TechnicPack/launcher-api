@@ -13,9 +13,9 @@ namespace Tests\Unit\Resources;
 
 use Carbon\Carbon;
 use Tests\TestCase;
-use Platform\Client;
 use Illuminate\Http\Request;
-use Platform\Http\Resources\ClientResource;
+use TechnicPack\LauncherApi\Client;
+use TechnicPack\LauncherApi\Http\Resources\ClientResource;
 
 class ClientResourceTest extends TestCase
 {

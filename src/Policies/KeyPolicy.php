@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Policies;
+namespace TechnicPack\LauncherApi\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 

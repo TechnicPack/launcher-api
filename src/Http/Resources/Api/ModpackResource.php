@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Resources\Api;
+namespace TechnicPack\LauncherApi\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -23,6 +23,6 @@ class ModpackResource extends Resource
      */
     public function toArray($request)
     {
-        return $this->getAttribute(config('platform.attributes.modpack.display_name'));
+        return $this->getAttribute(config('launcher-api.attributes.modpack.display_name'));
     }
 }

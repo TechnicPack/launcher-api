@@ -11,8 +11,8 @@
 
 namespace Tests\Feature\Api;
 
-use Platform\Key;
 use Tests\TestCase;
+use TechnicPack\LauncherApi\Key;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VerifyTokenTest extends TestCase

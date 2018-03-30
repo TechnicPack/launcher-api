@@ -12,10 +12,10 @@
 namespace Tests\Feature\Api;
 
 use Tests\Build;
-use Platform\Key;
 use Tests\Modpack;
 use Tests\TestCase;
-use Platform\Client;
+use TechnicPack\LauncherApi\Key;
+use TechnicPack\LauncherApi\Client;
 use Illuminate\Http\Resources\Json\Resource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

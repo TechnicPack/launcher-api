@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(Platform\Client::class, function () {
+$factory->define(TechnicPack\LauncherApi\Client::class, function () {
     return [
         'title' => 'Test Client',
         'token' => 'TESTTOKEN',

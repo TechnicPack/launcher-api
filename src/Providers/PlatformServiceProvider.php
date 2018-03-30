@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Providers;
+namespace TechnicPack\LauncherApi\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -27,9 +27,9 @@ class PlatformServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadMigrationsFrom(__DIR__.'/../../migrations');
 
-        $this->publishes([__DIR__.'/../../config/platform.php' => config_path('platform.php')]);
+        $this->publishes([__DIR__.'/../../config/platform.php' => config_path('launcher-api.php')]);
 
-        $this->mergeConfigFrom(__DIR__.'/../../config/platform.php', 'platform');
+        $this->mergeConfigFrom(__DIR__.'/../../config/launcher-api.php', 'launcher-api');
 
         $this->registerPolicies();
     }
@@ -41,11 +41,11 @@ class PlatformServiceProvider extends ServiceProvider
      */
     public function registerPolicies()
     {
-        Gate::define('keys.list', config('platform.authorize.keys.list'));
-        Gate::define('keys.create', config('platform.authorize.keys.create'));
-        Gate::define('keys.delete', config('platform.authorize.keys.delete'));
-        Gate::define('clients.list', config('platform.authorize.clients.list'));
-        Gate::define('clients.create', config('platform.authorize.clients.create'));
-        Gate::define('clients.delete', config('platform.authorize.clients.delete'));
+        Gate::define('keys.list', config('launcher-api.authorize.keys.list'));
+        Gate::define('keys.create', config('launcher-api.authorize.keys.create'));
+        Gate::define('keys.delete', config('launcher-api.authorize.keys.delete'));
+        Gate::define('clients.list', config('launcher-api.authorize.clients.list'));
+        Gate::define('clients.create', config('launcher-api.authorize.clients.create'));
+        Gate::define('clients.delete', config('launcher-api.authorize.clients.delete'));
     }
 }

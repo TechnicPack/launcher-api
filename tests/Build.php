@@ -11,9 +11,9 @@
 
 namespace Tests;
 
-use Platform\Build as PlatformBuild;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use TechnicPack\LauncherApi\Build as PlatformBuild;
 
 class Build extends Model implements PlatformBuild
 {

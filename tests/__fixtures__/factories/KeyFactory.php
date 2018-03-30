@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(Platform\Key::class, function () {
+$factory->define(TechnicPack\LauncherApi\Key::class, function () {
     return [
         'name' => 'Test Key',
         'token' => 'test-key-token',

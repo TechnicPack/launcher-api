@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Controllers\Api;
+namespace TechnicPack\LauncherApi\Http\Controllers\Api;
 
-use Platform\Key;
-use Platform\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\Key;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use TechnicPack\LauncherApi\Http\Controllers\Controller;
 
 class VerifyToken extends Controller
 {

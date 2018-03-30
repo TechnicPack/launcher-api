@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Controllers\Api;
+namespace TechnicPack\LauncherApi\Http\Controllers\Api;
 
-use Platform\QueryBuilder;
 use Illuminate\Support\Facades\Storage;
-use Platform\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\QueryBuilder;
 use Illuminate\Http\Resources\Json\Resource;
-use Platform\Http\Resources\Api\ModpackResource;
-use Platform\Http\Resources\Api\ModpackFullResource;
+use TechnicPack\LauncherApi\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\Http\Resources\Api\ModpackResource;
+use TechnicPack\LauncherApi\Http\Resources\Api\ModpackFullResource;
 
 class ModpackController extends Controller
 {
@@ -39,7 +39,7 @@ class ModpackController extends Controller
         Resource::wrap('modpacks');
 
         // TODO: N+1 bug here; but this result set shouldn't get large
-        $modpacks = $query->modpacks()->get()->keyBy(config('platform.attributes.modpack.name'));
+        $modpacks = $query->modpacks()->get()->keyBy(config('launcher-api.attributes.modpack.name'));
         $modpacks->each(function ($modpack) use ($query) {
             $modpack->setRelation('builds', $query->builds($modpack)->get());
         });
@@ -72,7 +72,7 @@ class ModpackController extends Controller
         Resource::withoutWrapping();
 
         $modpack = $query->modpacks()
-            ->where(config('platform.attributes.modpack.name'), $modpackName)
+            ->where(config('launcher-api.attributes.modpack.name'), $modpackName)
             ->firstOrFail();
 
         $modpack->setRelation('builds', $query->builds($modpack)->get());

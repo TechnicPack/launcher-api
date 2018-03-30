@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Resources\Api;
+namespace TechnicPack\LauncherApi\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -24,11 +24,11 @@ class ModResource extends Resource
     public function toArray($request)
     {
         return [
-            'name' => $this->getAttribute(config('platform.attributes.mod.name')),
-            'version' => $this->getAttribute(config('platform.attributes.mod.version')),
-            'md5' => $this->getAttribute(config('platform.attributes.mod.md5')),
-            'url' => $this->getAttribute(config('platform.attributes.mod.url')),
-            'filesize' => (int) $this->getAttribute(config('platform.attributes.mod.filesize')),
+            'name' => $this->getAttribute(config('launcher-api.attributes.mod.name')),
+            'version' => $this->getAttribute(config('launcher-api.attributes.mod.version')),
+            'md5' => $this->getAttribute(config('launcher-api.attributes.mod.md5')),
+            'url' => $this->getAttribute(config('launcher-api.attributes.mod.url')),
+            'filesize' => (int) $this->getAttribute(config('launcher-api.attributes.mod.filesize')),
         ];
     }
 }

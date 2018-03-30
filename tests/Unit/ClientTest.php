@@ -12,7 +12,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Platform\Client;
+use TechnicPack\LauncherApi\Client;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ClientTest extends TestCase

@@ -11,10 +11,10 @@
 
 namespace Tests;
 
-use Platform\HasClients;
 use Illuminate\Database\Eloquent\Model;
-use Platform\Modpack as PlatformModpack;
+use TechnicPack\LauncherApi\HasClients;
 use Illuminate\Database\Eloquent\Builder;
+use TechnicPack\LauncherApi\Modpack as PlatformModpack;
 
 class Modpack extends Model implements PlatformModpack
 {

@@ -11,8 +11,8 @@
 
 namespace Tests\Unit;
 
-use Platform\Key;
 use Tests\TestCase;
+use TechnicPack\LauncherApi\Key;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class KeyTest extends TestCase

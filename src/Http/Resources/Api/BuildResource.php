@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Resources\Api;
+namespace TechnicPack\LauncherApi\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -24,10 +24,10 @@ class BuildResource extends Resource
     public function toArray($request)
     {
         return [
-            'minecraft' => $this->getAttribute(config('platform.attributes.build.minecraft')),
-            'java' => $this->getAttribute(config('platform.attributes.build.java')),
-            'memory' => (int) $this->getAttribute(config('platform.attributes.build.memory')),
-            'forge' => $this->getAttribute(config('platform.attributes.build.forge')),
+            'minecraft' => $this->getAttribute(config('launcher-api.attributes.build.minecraft')),
+            'java' => $this->getAttribute(config('launcher-api.attributes.build.java')),
+            'memory' => (int) $this->getAttribute(config('launcher-api.attributes.build.memory')),
+            'forge' => $this->getAttribute(config('launcher-api.attributes.build.forge')),
             'mods' => ModResource::collection($this->mods),
         ];
     }

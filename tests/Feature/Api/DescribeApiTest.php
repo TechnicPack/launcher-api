@@ -18,9 +18,9 @@ class DescribeApiTest extends TestCase
     /** @test **/
     public function describe_the_api()
     {
-        config(['platform.provider' => 'Custom Provider']);
-        config(['platform.version' => '1.2.3']);
-        config(['platform.stream' => 'test']);
+        config(['launcher-api.provider' => 'Custom Provider']);
+        config(['launcher-api.version' => '1.2.3']);
+        config(['launcher-api.stream' => 'test']);
 
         $response = $this->getJson('/api');
 

@@ -12,7 +12,7 @@
 Route::group([
     'prefix' => 'api',
     'middleware' => 'api',
-    'namespace' => 'Platform\Http\Controllers\Api',
+    'namespace' => 'TechnicPack\LauncherApi\Http\Controllers\Api',
 ], function () {
 
     // API Root

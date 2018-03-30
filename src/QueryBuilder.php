@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform;
+namespace TechnicPack\LauncherApi;
 
 use Illuminate\Http\Request;
 
@@ -39,7 +39,7 @@ class QueryBuilder
      */
     public function modpacks()
     {
-        $modpack = config('platform.model.modpack');
+        $modpack = config('launcher-api.model.modpack');
         $query = $modpack::query()->public();
 
         if (Key::isValid($this->request->get('k'))) {

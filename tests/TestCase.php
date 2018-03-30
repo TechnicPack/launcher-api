@@ -14,9 +14,9 @@ namespace Tests;
 use PHPUnit\Framework\Assert;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Config;
-use Platform\Providers\PlatformServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use TechnicPack\LauncherApi\Providers\PlatformServiceProvider;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class TestCase extends BaseTestCase
@@ -25,8 +25,8 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        Config::set('platform.model.modpack', Modpack::class);
-        Config::set('platform.model.build', Build::class);
+        Config::set('launcher-api.model.modpack', Modpack::class);
+        Config::set('launcher-api.model.build', Build::class);
 
         $this->withFactories(__DIR__.'/__fixtures__/factories');
 

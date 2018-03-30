@@ -13,7 +13,7 @@ namespace Tests\Feature\Settings;
 
 use Tests\User;
 use Tests\TestCase;
-use Platform\Client;
+use TechnicPack\LauncherApi\Client;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class DeleteClientTest extends TestCase

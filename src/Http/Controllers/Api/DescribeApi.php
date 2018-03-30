@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Controllers\Api;
+namespace TechnicPack\LauncherApi\Http\Controllers\Api;
 
-use Platform\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\Http\Controllers\Controller;
 
 class DescribeApi extends Controller
 {
@@ -23,9 +23,9 @@ class DescribeApi extends Controller
     public function __invoke()
     {
         return response()->json([
-            'api' => config('platform.provider'),
-            'version' => config('platform.version'),
-            'stream' => config('platform.stream'),
+            'api' => config('launcher-api.provider'),
+            'version' => config('launcher-api.version'),
+            'stream' => config('launcher-api.stream'),
         ]);
     }
 }

@@ -12,7 +12,7 @@
 Route::group([
     'prefix' => 'settings',
     'middleware' => ['web', 'auth'],
-    'namespace' => 'Platform\Http\Controllers\Settings',
+    'namespace' => 'TechnicPack\LauncherApi\Http\Controllers\Settings',
 ], function () {
 
     // Key Routes ...

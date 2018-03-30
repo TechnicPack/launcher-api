@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Resources;
+namespace TechnicPack\LauncherApi\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 

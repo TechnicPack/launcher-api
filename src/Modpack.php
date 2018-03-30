@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform;
+namespace TechnicPack\LauncherApi;
 
 use Illuminate\Database\Eloquent\Builder;
 

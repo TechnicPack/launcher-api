@@ -13,7 +13,7 @@ namespace Tests\Unit;
 
 use Tests\Modpack;
 use Tests\TestCase;
-use Platform\Client;
+use TechnicPack\LauncherApi\Client;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class HasClientsTest extends TestCase

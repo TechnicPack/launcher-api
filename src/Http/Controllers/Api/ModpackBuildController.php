@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Platform\Http\Controllers\Api;
+namespace TechnicPack\LauncherApi\Http\Controllers\Api;
 
-use Platform\QueryBuilder;
-use Platform\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\QueryBuilder;
 use Illuminate\Http\Resources\Json\Resource;
-use Platform\Http\Resources\Api\BuildResource;
+use TechnicPack\LauncherApi\Http\Controllers\Controller;
+use TechnicPack\LauncherApi\Http\Resources\Api\BuildResource;
 
 class ModpackBuildController extends Controller
 {
@@ -33,12 +33,12 @@ class ModpackBuildController extends Controller
         Resource::withoutWrapping();
 
         $modpack = $query->modpacks()
-            ->where(config('platform.attributes.modpack.name'), $modpackName)
+            ->where(config('launcher-api.attributes.modpack.name'), $modpackName)
             ->firstOrFail();
 
         $build = $query->builds($modpack)
             ->with('mods')
-            ->where(config('platform.attributes.build.version'), $buildVersion)
+            ->where(config('launcher-api.attributes.build.version'), $buildVersion)
             ->firstOrFail();
 
         return new BuildResource($build);
