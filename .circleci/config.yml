@@ -16,4 +16,4 @@ jobs:
 
       - run:
           name: PHPUnit Tests
-          command: vendor/bin/phpunit --exclude-group none
+          command: vendor/bin/phpunit
