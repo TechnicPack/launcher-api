@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use TechnicPack\LauncherApi\Providers\PlatformServiceProvider;
+use TechnicPack\LauncherApi\Providers\LauncherApiServiceProvider;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class TestCase extends BaseTestCase
@@ -51,7 +51,7 @@ class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
-            PlatformServiceProvider::class,
+            LauncherApiServiceProvider::class,
         ];
     }
 

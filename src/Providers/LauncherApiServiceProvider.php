@@ -14,10 +14,10 @@ namespace TechnicPack\LauncherApi\Providers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
-class PlatformServiceProvider extends ServiceProvider
+class LauncherApiServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any platform services.
+     * Bootstrap any services.
      *
      * @return void
      */
@@ -27,7 +27,7 @@ class PlatformServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadMigrationsFrom(__DIR__.'/../../migrations');
 
-        $this->publishes([__DIR__.'/../../config/platform.php' => config_path('launcher-api.php')]);
+        $this->publishes([__DIR__.'/../../config/launcher-api.php' => config_path('launcher-api.php')]);
 
         $this->mergeConfigFrom(__DIR__.'/../../config/launcher-api.php', 'launcher-api');
 
