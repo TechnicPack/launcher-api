@@ -11,7 +11,6 @@
 
 namespace TechnicPack\LauncherApi\Http\Controllers\Api;
 
-use Illuminate\Support\Facades\Storage;
 use TechnicPack\LauncherApi\QueryBuilder;
 use Illuminate\Http\Resources\Json\Resource;
 use TechnicPack\LauncherApi\Http\Controllers\Controller;
@@ -51,7 +50,7 @@ class ModpackController extends Controller
         }
 
         return $resource->additional([
-            'mirror_url' => preg_replace('/([^:])(\/{2,})/', '$1/', Storage::url('/')),
+            'mirror_url' => config('launcher-api.mirror_url'),
         ]);
     }
 

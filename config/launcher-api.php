@@ -50,6 +50,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Mirror URL
+    |--------------------------------------------------------------------------
+    |
+    | This is where the launcher will be told to search for your files. This
+    | location is only searched if the mod url is a file path and not a url.
+    |
+    */
+
+    'mirror_url' => env('APP_URL').'/storage',
+
+    /*
+    |--------------------------------------------------------------------------
     | Models
     |--------------------------------------------------------------------------
     |

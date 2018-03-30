@@ -51,6 +51,19 @@ class ListModpacksTest extends TestCase
     }
 
     /** @test */
+    public function modpack_list_includes_mirror_url()
+    {
+        config(['launcher-api.mirror_url' => 'http://example.com/repo']);
+
+        $response = $this->getJson('api/modpack');
+
+        $response->assertStatus(200);
+        $response->assertJsonFragment([
+            'mirror_url' => 'http://example.com/repo',
+        ]);
+    }
+
+    /** @test */
     public function retrieve_expanded_results_with_include_full()
     {
         factory(Modpack::class)->states('public')->create([

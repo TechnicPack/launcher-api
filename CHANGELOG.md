@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
  - Namespace for package is now TechnicPack\LauncherApi
+ - Mirror URL is configurable
 
 ## 1.0.0 - 2018-03-28
 ### Initial Release
