@@ -169,6 +169,38 @@ class Build implements PlatformBuild
 }
 ```
 
+*Frontend*
+
+This package ships with a JSON API that you may use to allow your users to create clients and keys. However, it can be time consuming to code a frontend to interact with these APIs. So, we've also included pre-built Vue components you may use as an starting point for your own implementation.
+
+_note that the components do not include ANY template, you must implement your own html as an inline-template_
+
+To publish the Launcher API Vue components, use the vendor:publish Artisan command:
+
+```
+php artisan vendor:publish --tag=platform-api-components
+```
+
+The published components will be placed in your `resources/assets/js/vendor/launcher-api` directory. Once the components have been published, you should register them in your `resources/assets/js/app.js` file:
+
+```js
+require('./vendor/launcher-api/bootstrap');
+```
+
+After registering the components, make sure to run npm run dev to recompile your assets. Once you have recompiled your assets, you may drop the components into one of your application's templates to get started creating clients and keys.
+
+```html
+<launcher-api-clients inline-template>
+    <launcher-api-create-client inline-template> ... </launcher-api-create-client>
+    <launcher-api-list-clients :clients="clients" inline-template> ... </launcher-api-list-clients>
+</launcher-api-clients>
+
+<launcher-api-keys inline-template>
+    <launcher-api-create-key inline-template> ... </launcher-api-create-key>
+    <launcher-api-list-keys :keys="keys" inline-template> ... </launcher-api-list-key>
+</launcher-api-keys>
+```
+
 ## Authors
 
 * **Kyle Klaus** - *Initial work* - [Indemnity83](https://github.com/indemnity83)
