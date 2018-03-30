@@ -57,7 +57,7 @@ class LauncherApiServiceProvider extends ServiceProvider
     {
         // --tag=launcher-api-config
         $this->publishes([
-            __DIR__.'/../../config/launcher-api.php' => config_path('launcher-api.php')
+            __DIR__.'/../../config/launcher-api.php' => config_path('launcher-api.php'),
         ], 'launcher-api-config');
 
         // --tag=launcher-api-components
