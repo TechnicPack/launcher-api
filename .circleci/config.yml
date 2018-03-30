@@ -11,9 +11,17 @@ jobs:
       - checkout
 
       - run:
+          name: Add XDebug
+          command: pecl install xdebug-2.5.0 && docker-php-ext-enable xdebug
+
+      - run:
           name: Install Composer Dependencies
           command: composer install --no-progress --no-suggest
 
       - run:
           name: PHPUnit Tests
-          command: vendor/bin/phpunit
+          command: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+      - run:
+          name: Report Coverage
+          command: vendor/bin/php-coveralls
