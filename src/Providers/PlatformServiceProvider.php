@@ -13,7 +13,6 @@ namespace Platform\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class PlatformServiceProvider extends ServiceProvider
 {
@@ -33,27 +32,6 @@ class PlatformServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../../config/platform.php', 'platform');
 
         $this->registerPolicies();
-    }
-
-    /**
-     * Register any platform services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Register factories.
-     *
-     * @param  string  $path
-     * @return void
-     */
-    protected function loadModelFactoriesFrom($path)
-    {
-        $this->app->make(Factory::class)->load($path);
     }
 
     /**
