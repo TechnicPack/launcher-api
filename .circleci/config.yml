@@ -21,3 +21,7 @@ jobs:
       - run:
           name: PHPUnit Tests
           command: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+      - run:
+          name: Report Coverage
+          command: vendor/bin/php-coveralls
