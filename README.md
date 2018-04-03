@@ -99,7 +99,7 @@ foreach ($modpack->clients as $client) {
 }
 ```
 
-The trait also provides several other helper methods that are useful when developing team based applications:
+The trait also provides several other helper methods that are useful when working with clients:
 
 ```php
 if ($modpack->hasClients()) {
