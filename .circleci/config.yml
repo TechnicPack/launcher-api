@@ -11,10 +11,6 @@ jobs:
       - checkout
 
       - run:
-          name: Add XDebug
-          command: pecl install xdebug-2.5.0 && docker-php-ext-enable xdebug
-
-      - run:
           name: Install Composer Dependencies
           command: composer install --no-progress --no-suggest
 
