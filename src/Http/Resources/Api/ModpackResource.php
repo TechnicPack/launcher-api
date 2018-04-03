@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of TechnicPack Launcher Api.
+ * This file is part of TechnicPack Launcher API.
  *
  * (c) Syndicate LLC
  *
