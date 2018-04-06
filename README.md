@@ -6,9 +6,11 @@
 This package provides the endpoints necessary for the TechnicPack Launcher to
 load a modpack, its builds and the mods related with a build.
 
+> Its important to note that this package does very little on its own. Its intended to be included in a larger project such as [TechnicPack Solder](https://github.com/technicpack/solder). See deployment for notes on how to deploy the package into another project.
+
 ## Getting Started
 
-These instructions will get you a copy of the package up and running on your local machine for development and testing purposes. Its important to note that this package does very little on its own. Its intended to be included in a larger project such as [TechnicPack Solder](https://github.com/technicpack/solder). See deployment for notes on how to deploy the package into another project.
+These instructions will get you a copy of the package up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
