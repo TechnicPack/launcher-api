@@ -1,6 +1,6 @@
 # TechnicPack Launcher Api
 
-[![CircleCI](https://circleci.com/gh/TechnicPack/launcher-api.svg?style=shield)](https://circleci.com/gh/TechnicPack/launcher-api) [![Coverage Status](https://coveralls.io/repos/github/TechnicPack/launcher-api/badge.svg?branch=master)](https://coveralls.io/github/TechnicPack/launcher-api?branch=master) [![StyleCI](https://styleci.io/repos/7548986/shield)](https://styleci.io/repos/127381550)
+[![Latest Stable Version](https://poser.pugx.org/technicpack/launcher-api/v/stable)](https://packagist.org/packages/technicpack/launcher-api) [![Total Downloads](https://poser.pugx.org/technicpack/launcher-api/downloads)](https://packagist.org/packages/technicpack/launcher-api) [![CircleCI](https://circleci.com/gh/TechnicPack/launcher-api.svg?style=shield)](https://circleci.com/gh/TechnicPack/launcher-api) [![Coverage Status](https://coveralls.io/repos/github/TechnicPack/launcher-api/badge.svg?branch=master)](https://coveralls.io/github/TechnicPack/launcher-api?branch=master) [![StyleCI](https://styleci.io/repos/7548986/shield)](https://styleci.io/repos/127381550) [![License](https://poser.pugx.org/technicpack/launcher-api/license)](https://github.com/TechnicPack/launcher-api/blob/master/LICENSE.md)
 
 
 This package provides the endpoints necessary for the TechnicPack Launcher to
